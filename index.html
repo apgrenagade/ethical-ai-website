@@ -15,7 +15,23 @@
         footer { background: black; color: white; text-align: center; padding: 2rem; margin-top: 2rem; font-size: 1.1rem; }
         button { background: #1e90ff; color: white; border: none; padding: 1rem 2rem; font-size: 1.2rem; border-radius: 5px; cursor: pointer; transition: 0.3s; }
         button:hover { background: #007acc; transform: scale(1.05); }
+        .survey-form { text-align: left; max-width: 600px; margin: auto; }
+        .survey-form label { display: block; margin: 10px 0 5px; font-weight: bold; }
+        .survey-form input, .survey-form select, .survey-form textarea { width: 100%; padding: 8px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
+        .survey-form button { margin-top: 15px; }
     </style>
+    <script>
+        function saveSurvey() {
+            const formData = new FormData(document.getElementById('surveyForm'));
+            let surveyData = '';
+            formData.forEach((value, key) => { surveyData += `${key}: ${value}\n`; });
+            const blob = new Blob([surveyData], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'survey_responses.txt';
+            link.click();
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -31,6 +47,8 @@
         <section id="about" class="section">
             <h2>About Us</h2>
             <p>We strive to promote responsible AI use in education by developing ethical policies and ensuring that AI enhances learning without compromising academic integrity.</p>
+            <h3>Our Founder</h3>
+            <p><strong>Yuvan Kothari</strong> is the founder of Ethical AI in Schools. With a background in computer science education and leadership, Yuvan has worked extensively in developing AI curricula and promoting responsible AI practices. His experience with ByteBuildersAI, tutoring, and leadership roles in high school has fueled his passion for ensuring AI is used ethically in education. His vision for this organization is to empower students and educators to integrate AI responsibly while maintaining academic integrity.</p>
         </section>
         <section id="resources" class="section">
             <h2>Resources</h2>
@@ -39,7 +57,27 @@
         <section id="survey" class="section">
             <h2>AI Ethics Survey</h2>
             <p>Help us understand student perspectives on AI in education by taking our short survey.</p>
-            <button onclick="window.location.href='#survey'">Take Survey</button>
+            <form id="surveyForm" class="survey-form">
+                <label>How often do you use AI tools for schoolwork?</label>
+                <select name="ai_usage">
+                    <option>Never</option>
+                    <option>Rarely</option>
+                    <option>Sometimes</option>
+                    <option>Often</option>
+                    <option>Always</option>
+                </select>
+                <label>What do you use AI for in school?</label>
+                <input type="text" name="ai_usage_purpose" placeholder="e.g., brainstorming, research">
+                <label>Should AI be allowed in assignments?</label>
+                <select name="ai_allowed">
+                    <option>Yes, without restrictions</option>
+                    <option>Yes, with guidelines</option>
+                    <option>No, it should be banned</option>
+                </select>
+                <label>Additional Comments:</label>
+                <textarea name="comments" rows="4"></textarea>
+                <button type="button" onclick="saveSurvey()">Submit Survey</button>
+            </form>
         </section>
         <section id="contact" class="section">
             <h2>Contact Us</h2>
