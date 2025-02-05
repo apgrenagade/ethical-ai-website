@@ -15,23 +15,10 @@
         footer { background: black; color: white; text-align: center; padding: 2rem; margin-top: 2rem; font-size: 1.1rem; }
         button { background: #1e90ff; color: white; border: none; padding: 1rem 2rem; font-size: 1.2rem; border-radius: 5px; cursor: pointer; transition: 0.3s; }
         button:hover { background: #007acc; transform: scale(1.05); }
-        .survey-form { text-align: left; max-width: 600px; margin: auto; }
-        .survey-form label { display: block; margin: 10px 0 5px; font-weight: bold; }
-        .survey-form input, .survey-form select, .survey-form textarea { width: 100%; padding: 8px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
-        .survey-form button { margin-top: 15px; }
+        .form-container { text-align: left; max-width: 600px; margin: auto; }
+        .form-container input, .form-container select, .form-container textarea { width: 100%; padding: 8px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
+        .form-container button { margin-top: 15px; }
     </style>
-    <script>
-        function saveSurvey() {
-            const formData = new FormData(document.getElementById('surveyForm'));
-            let surveyData = '';
-            formData.forEach((value, key) => { surveyData += `${key}: ${value}\n`; });
-            const blob = new Blob([surveyData], { type: 'text/plain' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'survey_responses.txt';
-            link.click();
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -40,56 +27,58 @@
     <nav>
         <a href="#about">About</a>
         <a href="#resources">Resources</a>
+        <a href="#signup">Sign Up</a>
         <a href="#survey">Survey</a>
         <a href="#contact">Contact</a>
     </nav>
     <div class="container">
         <section id="about" class="section">
-            <<h2>About Us</h2>
-            <p>We strive to promote responsible AI use in education by developing ethical policies, providing AI literacy resources, and fostering discussions on the ethical implications of artificial intelligence in academic settings. Our mission is to empower students and educators with the knowledge and tools necessary to integrate AI responsibly, ensuring that it serves as an aid to learning rather than a means of academic dishonesty.</p>
-            <p>We work closely with educators, policymakers, and students to create AI usage guidelines that uphold academic integrity while leveraging AI’s potential for personalized learning and accessibility improvements. Our goal is to foster a culture where AI is understood, utilized wisely, and integrated into the curriculum in a way that aligns with ethical principles and long-term educational success.</p>
-            <h3>Our Founder</h3>
-            <p><strong>Yuvan Kothari</strong> is the founder of Ethical AI in Schools. With a background in computer science education and leadership, Yuvan has worked extensively in developing AI curricula and promoting responsible AI practices. His experience with ByteBuildersAI, tutoring, and leadership roles in high school has fueled his passion for ensuring AI is used ethically in education. His vision for this organization is to empower students and educators to integrate AI responsibly while maintaining academic integrity.</p>
+            <h2>About Us</h2>
+            <p>We promote responsible AI use in education by developing ethical policies, providing AI literacy resources, and fostering discussions on artificial intelligence’s ethical implications in academic settings.</p>
+            <p>Our mission is to ensure students and educators integrate AI responsibly, using it as a tool for learning rather than an easy shortcut. We collaborate with schools and policymakers to create guidelines that support AI-driven learning while maintaining academic integrity.</p>
         </section>
         <section id="resources" class="section">
-            <<h2>Resources</h2>
-            <p>Explore our AI ethics curriculum, best practices, and policy recommendations to help guide AI integration in education. Our resources cover key areas of AI literacy, ensuring educators and students are equipped to make informed decisions regarding AI use.</p>
-            <h3>1. Understanding AI</h3>
-            <p>Learn about the fundamentals of artificial intelligence, machine learning, and how AI is currently being used in educational settings.</p>
-            <h3>2. Ethical AI Usage</h3>
-            <p>Explore the ethical considerations of AI, including fairness, bias, transparency, and the societal impact of automation in academic settings.</p>
-            <h3>3. AI Policy and Implementation</h3>
-            <p>Gain insights into how AI policies can be developed and implemented in schools to support responsible AI use while preventing misuse.</p>
+            <h2>Resources</h2>
+            <p>Our curriculum covers essential AI literacy topics to help students and educators navigate AI effectively:</p>
+            <h3>1. AI Fundamentals</h3>
+            <p>Introduction to artificial intelligence, machine learning, and real-world applications in education.</p>
+            <h3>2. Ethical AI Practices</h3>
+            <p>Exploring fairness, bias, and transparency in AI-assisted learning and decision-making.</p>
+            <h3>3. AI in Education</h3>
+            <p>Best practices for using AI tools in assignments and research while avoiding academic dishonesty.</p>
+        </section>
+        <section id="signup" class="section">
+            <h2>Sign Up for Our Class</h2>
+            <p>Join our **Ethical AI in Education** class from <strong>April 14-18</strong>, running daily from <strong>12-1 PM</strong>. This course provides hands-on AI ethics training, real-world case studies, and expert insights to help students and educators understand responsible AI integration in education.</p>
+            <div class="form-container">
+                <form>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="grade">Grade Level:</label>
+                    <select id="grade" name="grade">
+                        <option>Middle School</option>
+                        <option>High School</option>
+                        <option>College</option>
+                        <option>Educator</option>
+                    </select>
+                    
+                    <button type="submit">Register Now</button>
+                </form>
+            </div>
         </section>
         <section id="survey" class="section">
             <h2>AI Ethics Survey</h2>
             <p>Help us understand student perspectives on AI in education by taking our short survey.</p>
-            <form id="surveyForm" class="survey-form">
-                <label>How often do you use AI tools for schoolwork?</label>
-                <select name="ai_usage">
-                    <option>Never</option>
-                    <option>Rarely</option>
-                    <option>Sometimes</option>
-                    <option>Often</option>
-                    <option>Always</option>
-                </select>
-                <label>What do you use AI for in school?</label>
-                <input type="text" name="ai_usage_purpose" placeholder="e.g., brainstorming, research">
-                <label>Should AI be allowed in assignments?</label>
-                <select name="ai_allowed">
-                    <option>Yes, without restrictions</option>
-                    <option>Yes, with guidelines</option>
-                    <option>No, it should be banned</option>
-                </select>
-                <label>Additional Comments:</label>
-                <textarea name="comments" rows="4"></textarea>
-                <button type="button" onclick="saveSurvey()">Submit Survey</button>
-            </form>
+            <button onclick="window.location.href='#survey'">Take Survey</button>
         </section>
         <section id="contact" class="section">
             <h2>Contact Us</h2>
             <p>Have questions or want to collaborate? Reach out to us.</p>
-            <div class="contact-form">
+            <div class="form-container">
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
                 <textarea rows="5" placeholder="Your Message" required></textarea>
