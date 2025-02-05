@@ -5,24 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethical AI in Schools</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f8ff; color: black; overflow-x: hidden; }
-        header { background: black; color: white; padding: 2rem; text-align: center; font-size: 2rem; font-weight: bold; position: relative; animation: fadeInDown 1s ease-out; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f8ff; color: black; overflow-x: hidden; scroll-behavior: smooth; }
+        header { background: url('header-background.jpg') center/cover no-repeat; color: white; padding: 4rem; text-align: center; font-size: 2.5rem; font-weight: bold; position: relative; animation: fadeInDown 1s ease-out; }
         nav { display: flex; justify-content: center; background: #1e90ff; padding: 1rem; animation: fadeIn 1.5s ease-in; }
         nav a { color: white; margin: 0 1.5rem; text-decoration: none; font-size: 1.2rem; font-weight: bold; transition: 0.3s; }
         nav a:hover { text-decoration: underline; }
         .container { max-width: 1200px; margin: auto; padding: 3rem; text-align: center; }
-        .section { margin-bottom: 3rem; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); opacity: 0; transform: translateY(50px); animation: fadeInUp 1s ease-out forwards; }
+        .section { margin-bottom: 3rem; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); opacity: 0; transform: translateY(50px); animation: fadeInUp 1s ease-out forwards; scroll-margin-top: 40vh; }
+        .flex-item img { width: 100%; max-width: 200px; border-radius: 10px; margin-bottom: 10px; }
         footer { background: black; color: white; text-align: center; padding: 2rem; margin-top: 2rem; font-size: 1.1rem; }
         button { background: #1e90ff; color: white; border: none; padding: 1rem 2rem; font-size: 1.2rem; border-radius: 5px; cursor: pointer; transition: 0.3s; }
         button:hover { background: #007acc; transform: scale(1.05); }
-        .flex-container { display: flex; flex-wrap: wrap; justify-content: space-between; }
-        .flex-item { flex: 1; min-width: 300px; padding: 20px; }
-        .contact-form { display: flex; flex-direction: column; align-items: center; }
-        .contact-form input, .contact-form textarea { width: 80%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
-        .contact-form button { width: 50%; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -44,23 +37,26 @@
             <h2>Resources</h2>
             <div class="flex-container">
                 <div class="flex-item">
+                    <img src="ai-ethics-guide.jpg" alt="AI Ethics Guide">
                     <h3>AI Ethics Guide</h3>
-                    <p>Comprehensive guide on AI ethics in education.</p>
+                    <p>A detailed guide on understanding ethical AI use, potential biases, and how to ensure fair AI integration in schools.</p>
                 </div>
                 <div class="flex-item">
+                    <img src="best-practices.jpg" alt="Best Practices">
                     <h3>Best Practices</h3>
-                    <p>Standards and recommendations for ethical AI use.</p>
+                    <p>Comprehensive strategies and recommendations for educators and students on the responsible use of AI in learning.</p>
                 </div>
                 <div class="flex-item">
+                    <img src="policy-framework.jpg" alt="Policy Framework">
                     <h3>Policy Framework</h3>
-                    <p>Proposed policies for AI integration in schools.</p>
+                    <p>Framework and sample policies for schools to implement AI ethically while maintaining academic integrity.</p>
                 </div>
             </div>
         </section>
         <section id="survey" class="section">
             <h2>AI Ethics Survey</h2>
             <p>Help us understand student perspectives on AI in education by taking our short survey.</p>
-            <button onclick="window.location.href='#'">Take Survey</button>
+            <button onclick="window.location.href='#survey'">Take Survey</button>
         </section>
         <section id="contact" class="section">
             <h2>Contact Us</h2>
